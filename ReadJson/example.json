@@ -1,0 +1,12 @@
+{
+    "first_name": "Jonh",
+    "last_name": "NamTC",
+    "age": 22,
+    "is_male": true,
+    "country": "Viet Nam",
+    "siblings": [
+        "Brad",
+        "Joe",
+        "HAhA"
+    ]
+}
