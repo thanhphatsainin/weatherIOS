@@ -98,7 +98,7 @@ class ViewController: UIViewController {
                                                options: .continueInBackground,
                                                completed: nil)
                         self.lableMain.text = thoitiet.weather[0].main
-                        self.lableNhietDo.text = String(thoitiet.main.temp) + "'C"
+                        self.lableNhietDo.text = String(round(thoitiet.main.temp)) + "'C"
                         self.lableDoAm.text = String(thoitiet.main.humidity) + "%"
                         self.lableGio.text = String(thoitiet.wind.speed) + " m/s"
 

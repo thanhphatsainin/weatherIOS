@@ -29,7 +29,10 @@ class TableViewCellWeather: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func khoitao(item : Weather2) {
+    func khoitao(item : Weather2?) {
+        guard let item = item else {
+            return
+        }
 //        let queue = DispatchQueue(label: "load Image")
 //        queue.async {
 //            DispatchQueue.main.async {
@@ -40,17 +43,27 @@ class TableViewCellWeather: UITableViewCell {
 //
 //            }
 //        }
+
         let urlString = "http://openweathermap.org/img/wn/" + item.weather[0].icon + ".png"
-        let url = URL(string: urlString)
+//        let url = URL(string: urlString)
         let queue = DispatchQueue(label: "load Image")
+//        queue.async {
+//            DispatchQueue.main.async {
+//                self.img.sd_setImage(with: url,
+//                                       placeholderImage: UIImage(systemName: "photo"),
+//                                       options: .continueInBackground,
+//                                       completed: nil)
+//            }
+//        }
+        
         queue.async {
             DispatchQueue.main.async {
-                self.img.sd_setImage(with: url,
-                                       placeholderImage: UIImage(systemName: "photo"),
-                                       options: .continueInBackground,
-                                       completed: nil)
+                if let url = URL(string: urlString) {
+                    self.img.setImage(from: url)
+                }
             }
         }
+        
         
         // thoi gian
         let dateFormatCoordinate = DateFormatter()
@@ -62,7 +75,7 @@ class TableViewCellWeather: UITableViewCell {
         
         self.mainLB.text = item.weather[0].main
         self.humidityLB.text = String(item.main.humidity) + "%"
-        self.tempLB.text = String(item.main.temp) + "'C"
+        self.tempLB.text = String(round(item.main.temp - 273)) + "'C"
         self.speedLB.text = String(item.wind.speed) + " m/s"
         
     }

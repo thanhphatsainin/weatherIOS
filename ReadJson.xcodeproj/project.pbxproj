@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1159660D26CC9C20005E60F5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159660C26CC9C20005E60F5 /* ImageCache.swift */; };
+		1159661126CC9CE3005E60F5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */; };
 		116C1E1224E77F31003FCBC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1124E77F31003FCBC0 /* AppDelegate.swift */; };
 		116C1E1424E77F31003FCBC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1324E77F31003FCBC0 /* SceneDelegate.swift */; };
 		116C1E1624E77F31003FCBC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1524E77F31003FCBC0 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1159660C26CC9C20005E60F5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		116C1E0E24E77F31003FCBC0 /* ReadJson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadJson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116C1E1124E77F31003FCBC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116C1E1324E77F31003FCBC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1159660F26CC9CBD005E60F5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		116C1E0524E77F31003FCBC0 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +85,7 @@
 		116C1E1024E77F31003FCBC0 /* ReadJson */ = {
 			isa = PBXGroup;
 			children = (
+				1159660F26CC9CBD005E60F5 /* Extension */,
 				11C7FA0E26C3F18E00850C4B /* Control */,
 				11C7FA0D26C3F18900850C4B /* View */,
 				11C7FA0C26C3F17F00850C4B /* Model */,
@@ -92,6 +105,7 @@
 			children = (
 				11C7FA0326C3942A00850C4B /* Model.swift */,
 				11C7FA0826C3CF0700850C4B /* Model2.swift */,
+				1159660C26CC9C20005E60F5 /* ImageCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,7 +133,6 @@
 				40D983741D394F892587A91C /* Pods-ReadJson.debug.xcconfig */,
 				95C20CE3027561F26C5E046C /* Pods-ReadJson.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +262,8 @@
 			files = (
 				11C7FA0926C3CF0700850C4B /* Model2.swift in Sources */,
 				116C1E1624E77F31003FCBC0 /* ViewController.swift in Sources */,
+				1159660D26CC9C20005E60F5 /* ImageCache.swift in Sources */,
+				1159661126CC9CE3005E60F5 /* UIImageView+Extension.swift in Sources */,
 				11C7FA1426C3F1D300850C4B /* ViewController7Ngay.swift in Sources */,
 				11C7FA1026C3F1AC00850C4B /* TableViewCellWeather.swift in Sources */,
 				116C1E1224E77F31003FCBC0 /* AppDelegate.swift in Sources */,
