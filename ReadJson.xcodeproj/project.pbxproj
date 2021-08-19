@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		1159660D26CC9C20005E60F5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159660C26CC9C20005E60F5 /* ImageCache.swift */; };
 		1159661126CC9CE3005E60F5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */; };
+		1159661526CCBF0B005E60F5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661426CCBF0B005E60F5 /* UIViewController+Extension.swift */; };
+		1159661926CCC365005E60F5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661826CCC365005E60F5 /* Network.swift */; };
+		1159661D26CCC62B005E60F5 /* RepositoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661C26CCC62B005E60F5 /* RepositoryAPI.swift */; };
+		1159662026CCEFE1005E60F5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159661F26CCEFE1005E60F5 /* APIService.swift */; };
+		1159662326CCF06E005E60F5 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159662226CCF06E005E60F5 /* CustomError.swift */; };
+		1159662626CCF228005E60F5 /* ResponseThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159662526CCF228005E60F5 /* ResponseThoiTiet.swift */; };
+		1159662926CCF268005E60F5 /* ResponseThoiTiet6Ngay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1159662826CCF268005E60F5 /* ResponseThoiTiet6Ngay.swift */; };
 		116C1E1224E77F31003FCBC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1124E77F31003FCBC0 /* AppDelegate.swift */; };
 		116C1E1424E77F31003FCBC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1324E77F31003FCBC0 /* SceneDelegate.swift */; };
 		116C1E1624E77F31003FCBC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C1E1524E77F31003FCBC0 /* ViewController.swift */; };
@@ -26,6 +33,13 @@
 /* Begin PBXFileReference section */
 		1159660C26CC9C20005E60F5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1159661426CCBF0B005E60F5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1159661826CCC365005E60F5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1159661C26CCC62B005E60F5 /* RepositoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAPI.swift; sourceTree = "<group>"; };
+		1159661F26CCEFE1005E60F5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1159662226CCF06E005E60F5 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		1159662526CCF228005E60F5 /* ResponseThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseThoiTiet.swift; sourceTree = "<group>"; };
+		1159662826CCF268005E60F5 /* ResponseThoiTiet6Ngay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseThoiTiet6Ngay.swift; sourceTree = "<group>"; };
 		116C1E0E24E77F31003FCBC0 /* ReadJson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadJson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116C1E1124E77F31003FCBC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116C1E1324E77F31003FCBC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +74,19 @@
 			isa = PBXGroup;
 			children = (
 				1159661026CC9CE3005E60F5 /* UIImageView+Extension.swift */,
+				1159661426CCBF0B005E60F5 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		1159661726CCC326005E60F5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1159661826CCC365005E60F5 /* Network.swift */,
+				1159661C26CCC62B005E60F5 /* RepositoryAPI.swift */,
+				1159661F26CCEFE1005E60F5 /* APIService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		116C1E0524E77F31003FCBC0 = {
@@ -85,6 +110,7 @@
 		116C1E1024E77F31003FCBC0 /* ReadJson */ = {
 			isa = PBXGroup;
 			children = (
+				1159661726CCC326005E60F5 /* Networking */,
 				1159660F26CC9CBD005E60F5 /* Extension */,
 				11C7FA0E26C3F18E00850C4B /* Control */,
 				11C7FA0D26C3F18900850C4B /* View */,
@@ -106,6 +132,9 @@
 				11C7FA0326C3942A00850C4B /* Model.swift */,
 				11C7FA0826C3CF0700850C4B /* Model2.swift */,
 				1159660C26CC9C20005E60F5 /* ImageCache.swift */,
+				1159662226CCF06E005E60F5 /* CustomError.swift */,
+				1159662526CCF228005E60F5 /* ResponseThoiTiet.swift */,
+				1159662826CCF268005E60F5 /* ResponseThoiTiet6Ngay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,14 +289,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1159661D26CCC62B005E60F5 /* RepositoryAPI.swift in Sources */,
 				11C7FA0926C3CF0700850C4B /* Model2.swift in Sources */,
 				116C1E1624E77F31003FCBC0 /* ViewController.swift in Sources */,
 				1159660D26CC9C20005E60F5 /* ImageCache.swift in Sources */,
+				1159662926CCF268005E60F5 /* ResponseThoiTiet6Ngay.swift in Sources */,
 				1159661126CC9CE3005E60F5 /* UIImageView+Extension.swift in Sources */,
 				11C7FA1426C3F1D300850C4B /* ViewController7Ngay.swift in Sources */,
+				1159661926CCC365005E60F5 /* Network.swift in Sources */,
+				1159662626CCF228005E60F5 /* ResponseThoiTiet.swift in Sources */,
+				1159662326CCF06E005E60F5 /* CustomError.swift in Sources */,
 				11C7FA1026C3F1AC00850C4B /* TableViewCellWeather.swift in Sources */,
 				116C1E1224E77F31003FCBC0 /* AppDelegate.swift in Sources */,
+				1159662026CCEFE1005E60F5 /* APIService.swift in Sources */,
 				11C7FA0426C3942A00850C4B /* Model.swift in Sources */,
+				1159661526CCBF0B005E60F5 /* UIViewController+Extension.swift in Sources */,
 				116C1E1424E77F31003FCBC0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

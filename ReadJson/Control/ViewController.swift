@@ -22,23 +22,26 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lableTime: UILabel!
     @IBOutlet weak var btn7ngay: UIButton!
-    var city : String = ""
+    var city = ""
+    var thoitiet = ThoiTiet()
+    var thoitiet7ngay = ThoiTiet7ngay()
+    private let repositoryAPI = RepositoryAPI()
+//    var api = WeatherAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         btn7ngay.layer.cornerRadius = 15
-        
-        
         //c1
         let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=Hanoi&units=metric&appid=5667e18f3836363f6926165a15043cc5&fbclid=IwAR3EPqOFaRuG_Zc81YAygpzE8W3B3Cd650tJ5DDCkcm-3A1ab4xkCi5TDMs")
         pullJSONData(url: url, forecast: false)
         
+        api1()
+        api2()
         //cach 2 : dai hon
 //        let urlString  =  "http://api.openweathermap.org/data/2.5/weather?q=Hanoi&units=metric&appid=5667e18f3836363f6926165a15043cc5&fbclid=IwAR3EPqOFaRuG_Zc81YAygpzE8W3B3Cd650tJ5DDCkcm-3A1ab4xkCi5TDMs"
 //        requestJson(url: urlString)
         
     }
-    
     
     @IBAction func click_btnTim(_ sender: UIButton) {
         city = searchCity.text ?? "Hanoi"
@@ -68,6 +71,30 @@ class ViewController: UIViewController {
         
     }
     
+    func api1() {
+        repositoryAPI.getThoiTiet(nameCity: "Hanoi") { result in
+            switch result {
+            case .success(let thoitiet):
+                self.thoitiet = thoitiet
+                dump(self.thoitiet)
+            case .failure(.badURL):
+                print("error!")
+            }
+        }
+    }
+    
+    func api2() {
+        repositoryAPI.getThoiTiet6Ngay(nameCity: "Hanoi") { result in
+            switch result {
+            case .success(let thoitiet7ngay):
+                self.thoitiet7ngay = thoitiet7ngay
+                dump(self.thoitiet7ngay)
+            case .failure(.badURL):
+                print("error!")
+            }
+        }
+    }
+    
     func decodeJSONData(JSONData: Data){
         do{
             let weatherData = try? JSONDecoder().decode(ThoiTiet.self, from: JSONData)
@@ -79,40 +106,42 @@ class ViewController: UIViewController {
                 thoitiet.dt = weatherData.dt
                 thoitiet.sys = weatherData.sys
                 thoitiet.name = weatherData.name
-
+                
+                self.thoitiet = thoitiet
                 DispatchQueue.main.async { // Correct
-                    self.lableCity.text = thoitiet.name
-                    self.lableCountry.text = thoitiet.sys.country
-                    if(thoitiet.weather.count == 0){
-                        let alter = UIAlertController(title: "Thong bao", message: "Ban nhap k dung ten thanh pho!", preferredStyle: .alert)
-                        let actionOk = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-                        }
-                        alter.addAction(actionOk)
-                        self.present(alter, animated: true, completion: nil)
-                    }
-                    else{
-                        let urlString = "http://openweathermap.org/img/wn/" + thoitiet.weather[0].icon + ".png"
-                        let url = URL(string: urlString)
-                        self.imgICon.sd_setImage(with: url,
-                                               placeholderImage: UIImage(systemName: "photo"),
-                                               options: .continueInBackground,
-                                               completed: nil)
-                        self.lableMain.text = thoitiet.weather[0].main
-                        self.lableNhietDo.text = String(round(thoitiet.main.temp)) + "'C"
-                        self.lableDoAm.text = String(thoitiet.main.humidity) + "%"
-                        self.lableGio.text = String(thoitiet.wind.speed) + " m/s"
-
-                        // thoi gian
-                        let dateFormatCoordinate = DateFormatter()
-                        dateFormatCoordinate.dateFormat = "EEEE yyyy-MM-dd HH:mm:ss"
-
-                        let time = thoitiet.dt
-                        let timeInterval = TimeInterval(time)
-                        let date = NSDate( timeIntervalSince1970: timeInterval)
-                        self.lableTime.text = dateFormatCoordinate.string(from: date as Date)
-                    }
+                    self.loadData()
                 }
             }
+        }
+    }
+    
+    func loadData() {
+        self.lableCity.text = thoitiet.name
+        self.lableCountry.text = thoitiet.sys.country
+        if(thoitiet.weather.count == 0){
+            let alter = UIAlertController(title: "Thong bao", message: "Ban nhap k dung ten thanh pho!", preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            }
+            alter.addAction(actionOk)
+            self.present(alter, animated: true, completion: nil)
+        }
+        else{
+            let urlString = "http://openweathermap.org/img/wn/" + thoitiet.weather[0].icon + ".png"
+            if let url = URL(string: urlString) {
+                self.imgICon.setImage(from: url)
+            }
+            self.lableMain.text = thoitiet.weather[0].main
+            self.lableNhietDo.text = String(round(thoitiet.main.temp)) + "'C"
+            self.lableDoAm.text = String(thoitiet.main.humidity) + "%"
+            self.lableGio.text = String(thoitiet.wind.speed) + " m/s"
+
+            // thoi gian
+            let dateFormatCoordinate = DateFormatter()
+            dateFormatCoordinate.dateFormat = "EEEE yyyy-MM-dd HH:mm:ss"
+            let time = thoitiet.dt
+            let timeInterval = TimeInterval(time)
+            let date = NSDate( timeIntervalSince1970: timeInterval)
+            self.lableTime.text = dateFormatCoordinate.string(from: date as Date)
         }
     }
 

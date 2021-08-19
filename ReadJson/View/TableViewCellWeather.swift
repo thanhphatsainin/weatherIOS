@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import SDWebImage
 
 class TableViewCellWeather: UITableViewCell {
 
-    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var timeLB: UILabel!
     @IBOutlet weak var mainLB: UILabel!
@@ -33,37 +31,11 @@ class TableViewCellWeather: UITableViewCell {
         guard let item = item else {
             return
         }
-//        let queue = DispatchQueue(label: "load Image")
-//        queue.async {
-//            DispatchQueue.main.async {
-//                let urlString = "http://openweathermap.org/img/wn/" + item.weather[0].icon + ".png"
-//                let url = URL(string: urlString)
-//                let data = try! Data(contentsOf: url!)
-//                self.img.image = UIImage(data: data)
-//
-//            }
-//        }
-
         let urlString = "http://openweathermap.org/img/wn/" + item.weather[0].icon + ".png"
-//        let url = URL(string: urlString)
-        let queue = DispatchQueue(label: "load Image")
-//        queue.async {
-//            DispatchQueue.main.async {
-//                self.img.sd_setImage(with: url,
-//                                       placeholderImage: UIImage(systemName: "photo"),
-//                                       options: .continueInBackground,
-//                                       completed: nil)
-//            }
-//        }
         
-        queue.async {
-            DispatchQueue.main.async {
-                if let url = URL(string: urlString) {
-                    self.img.setImage(from: url)
-                }
-            }
+        if let url = URL(string: urlString) {
+            self.img.setImage(from: url)
         }
-        
         
         // thoi gian
         let dateFormatCoordinate = DateFormatter()
@@ -77,7 +49,5 @@ class TableViewCellWeather: UITableViewCell {
         self.humidityLB.text = String(item.main.humidity) + "%"
         self.tempLB.text = String(round(item.main.temp - 273)) + "'C"
         self.speedLB.text = String(item.wind.speed) + " m/s"
-        
     }
-
 }
